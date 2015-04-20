@@ -1,0 +1,13 @@
+#!/bin/sh
+
+export WEB_FRONT_CONTROLLER='app.php';
+if [ "$APP_ENVIRONMENT" = "development" ]; then
+    WEB_FRONT_CONTROLLER='app_dev.php';
+fi;
+
+var_list="$(cat /usr/local/bin/entrypoint-vars)";
+cat /etc/nginx/conf.d/akeneo.template | \
+    envsubst "$var_list" > /etc/nginx/conf.d/akeneo.conf;
+
+# Run what was passed to us.
+$@
