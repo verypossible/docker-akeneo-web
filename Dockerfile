@@ -3,6 +3,7 @@ FROM nginx
 EXPOSE 80
 
 ENV APP_ENVIRONMENT='production' \
+    WEB_PHP_HOST='php' \
     WEB_SERVER_NAME='akeneo.local' \
     WEB_ERROR_LOG_LEVEL='warn' \
     WEB_STATUS_ALLOWED_IP=127.0.0.1

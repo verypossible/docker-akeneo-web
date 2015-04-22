@@ -13,6 +13,12 @@ The APP_ENVIRONMENT. By default this is set to production. If you set this to
 development then it will update the front controller to point at app_dev.php
 rather than app.php.
 
+### WEB_PHP_HOST
+
+This should be the name of the php akeneo docker container that you link into
+this container. That way nginx will know where to pass the php fpm requests.
+The default value is: `php`
+
 ### WEB_SERVER_NAME
 
 The server_name for the nginx configuration.
