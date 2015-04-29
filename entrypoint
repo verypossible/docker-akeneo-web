@@ -1,5 +1,9 @@
 #!/bin/sh
 
+if [ "$WEB_STATUS_ALLOWED_IP" = "HOST_IP" ]; then
+    WEB_STATUS_ALLOWED_IP=$(/sbin/ip route | awk '/default/ { print $3 }');
+fi;
+
 export WEB_FRONT_CONTROLLER='app.php';
 if [ "$APP_ENVIRONMENT" = "development" ]; then
     WEB_FRONT_CONTROLLER='app_dev.php';

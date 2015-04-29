@@ -31,6 +31,9 @@ The nginx error log level.
 
 An ip that is allowed to view the php-fpm and nginx status pages.
 
+If you set this variable to `HOST_IP` then it'll get replaced by the docker
+host's ip in the entrypoint.
+
 ## ENTRYPOINT
 
 The entrypoint will set up the front controller environment file off of the
