@@ -34,6 +34,13 @@ An ip that is allowed to view the php-fpm and nginx status pages.
 If you set this variable to `HOST_IP` then it'll get replaced by the docker
 host's ip in the entrypoint.
 
+### WEB_CLIENT_MAX_BODY_SIZE
+
+The nginx
+[client_max_body_size](http://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size)
+directive for the akeneo nginx configuration at the server level. It is set to
+the nginx default value of 1m by default.
+
 ## ENTRYPOINT
 
 The entrypoint will set up the front controller environment file off of the
