@@ -9,9 +9,18 @@ if [ "$APP_ENVIRONMENT" = "development" ]; then
     WEB_FRONT_CONTROLLER='app_dev.php';
 fi;
 
+if [ -n "$WEB_HTTPS_LB_REDIRECT" ]; then
+    WEB_HTTPS_LB_REDIRECT='include conf.d/load_balancer_https_redirect.partial;'
+else
+    WEB_HTTPS_LB_REDIRECT=''
+fi;
+
 var_list="$(cat /usr/local/bin/entrypoint-vars)";
 cat /etc/nginx/conf.d/akeneo.template | \
     envsubst "$var_list" > /etc/nginx/conf.d/akeneo.conf;
+
+cat /etc/nginx/conf.d/load_balancer_https_redirect.template | \
+    envsubst "$var_list" > /etc/nginx/conf.d/load_balancer_https_redirect.partial;
 
 # Run what was passed to us.
 $@

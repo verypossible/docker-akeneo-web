@@ -19,6 +19,8 @@ COPY nginx.conf /etc/nginx/nginx.conf
 
 COPY akeneo.conf /etc/nginx/conf.d/akeneo.template
 
+COPY load_balancer_https_redirect.partial /etc/nginx/conf.d/load_balancer_https_redirect.template
+
 RUN rm /etc/nginx/conf.d/default.conf
 
 RUN apt-get update && \

@@ -1,0 +1,6 @@
+# -*- mode: nginx -*-
+# vi: set ft=nginx :
+
+if ($http_x_forwarded_proto = 'http') {
+    return 301 https://$WEB_SERVER_NAME$request_uri;
+}

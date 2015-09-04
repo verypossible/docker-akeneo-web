@@ -41,6 +41,12 @@ The nginx
 directive for the akeneo nginx configuration at the server level. It is set to
 the nginx default value of 1m by default.
 
+### WEB_HTTPS_LB_REDIRECT
+
+If this is set to any value, then it will look for the load balancer header
+`X-Forwarded-Proto` to check for http traffic. If the traffic is http then it
+will redirect to https.
+
 ## ENTRYPOINT
 
 The entrypoint will set up the front controller environment file off of the
